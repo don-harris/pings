@@ -7,7 +7,8 @@
     "dev": "nodemon --watch server & webpack --watch",
     "postinstall": "webpack",
     "start": "node server",
-    "test": "jest"
+    "test": "jest",
+    "knex": "knex --knexfile ./server/knexfile.js"
   },
   "keywords": [
     "react",
@@ -28,6 +29,7 @@
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-redux": "^4.4.5",
+    "react-router-dom": "^4.2.2",
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",
     "superagent": "^2.2.0",
