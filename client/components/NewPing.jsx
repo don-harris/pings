@@ -1,6 +1,5 @@
 import {connect} from 'react-redux'
 import React from 'react'
-import data from '../../data.js'
 
 class NewPing extends React.Component {
   constructor (props) {
@@ -14,11 +13,10 @@ class NewPing extends React.Component {
       <div>
         <img/><img/><img/>
         <form>
-          <input type="text"/><br/>
+          Image: <input type="text"/><br/>
           <select name="" className="selector">
             <option selected disabled >Select user</option>
-            {data.users.map(user => {
-              console.log(user.name)
+            {this.props.users.map(user => {
               return (<option value={user.name}>{user.name}</option>)
             })}
           </select>
@@ -31,7 +29,9 @@ class NewPing extends React.Component {
 }
 
 function mapStateToProps (state) {
-
+  return {
+    users: state.users
+  }
 }
 
-export default connect()(NewPing)
+export default connect(mapStateToProps)(NewPing)
