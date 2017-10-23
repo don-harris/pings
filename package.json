@@ -1,5 +1,5 @@
 {
-  "name": "ping",
+  "name": "pings",
   "version": "0.1.0",
   "description": "Friendly signals",
   "main": "server/index",
