@@ -11,15 +11,17 @@ router.use(bodyParser.json())
 router.get('/users', (req, res) => {
   db.getUsers()
     .then(result => res.json(result))
-  .catch(() => {
-    res.status(500).end()
-  })
+    .catch(() => {
+      res.status(500).end()
+    })
+})
 
 router.get('/pings', (req, res) => {
   db.getPings()
     .then(result => res.json(result))
     .catch(() => {
-    res.status(500).end()
+      res.status(500).end()
+    })
 })
 
 router.post('/users', (req, res) => {
@@ -36,7 +38,8 @@ router.post('/users', (req, res) => {
       })
     })
     .catch(() => {
-    res.status(500).end()
+      res.status(500).end()
+    })
 })
 
 router.post('/pings', (req, res) => {
@@ -52,7 +55,8 @@ router.post('/pings', (req, res) => {
       })
     })
     .catch(() => {
-    res.status(500).end()
+      res.status(500).end()
+    })
 })
 
 module.exports = router
