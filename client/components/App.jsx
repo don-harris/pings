@@ -6,9 +6,10 @@ import Header from './Header'
 
 const App = () => (
   <div className='app'>
-    < Header />
+    <Header />
     <ErrorMessage />
     <WaitIndicator />
+    <Pings />
   </div>
 )
 

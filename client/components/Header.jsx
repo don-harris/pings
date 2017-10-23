@@ -8,6 +8,11 @@ const Header = () => {
     </div>
   )
 }
+function mapStateToProps(state) {
+  return {
+    isHeaderVisable: state.isHeaderVisable
+  }
+}
 
 
-export default connect()(Header)
+export default connect(mapStateToProps)(Header)
