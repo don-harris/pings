@@ -1,7 +1,7 @@
 {
-  "name": "lolcaps",
+  "name": "ping",
   "version": "0.1.0",
-  "description": "Captions that make you lol",
+  "description": "Friendly signals",
   "main": "server/index",
   "scripts": {
     "dev": "nodemon --watch server & webpack --watch",

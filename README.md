@@ -1,6 +1,6 @@
-# lolcaps
+# Ping
 
-> Captions that make you lol
+> Friendly signals
 
 
 ## Setup
