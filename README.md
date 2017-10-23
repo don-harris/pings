@@ -1,4 +1,4 @@
-# Ping
+# Pings
 
 > Friendly signals
 
