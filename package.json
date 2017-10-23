@@ -7,7 +7,8 @@
     "dev": "nodemon --watch server & webpack --watch",
     "postinstall": "webpack",
     "start": "node server",
-    "test": "jest"
+    "test": "jest",
+    "knex": "knex"
   },
   "keywords": [
     "react",
@@ -23,10 +24,12 @@
     "babel-preset-stage-0": "^6.24.1",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "knex": "^0.13.0",
     "prop-types": "^15.5.10",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-redux": "^4.4.5",
+    "react-router-dom": "^4.2.2",
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",
     "superagent": "^2.2.0",
@@ -43,6 +46,7 @@
     "enzyme": "^2.8.2",
     "jest": "^21.2.1",
     "nodemon": "^1.11.0",
+    "sqlite3": "^3.1.13",
     "supertest": "^3.0.0"
   }
 }
