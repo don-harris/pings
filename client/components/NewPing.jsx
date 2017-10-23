@@ -11,13 +11,15 @@ class NewPing extends React.Component {
   render () {
     return (
       <div>
-        <img/><img/><img/>
+        <img src={this.props.currentUser.photo_url} />
+        <img/>
+        <img/>
         <form>
           Image: <input type="text"/><br/>
           <select name="" className="selector">
             <option selected disabled >Select user</option>
             {this.props.users.map(user => {
-              return (<option value={user.name}>{user.name}</option>)
+              return (<option key={user.id} value={user.name}>{user.name}</option>)
             })}
           </select>
           <br/>
@@ -30,7 +32,8 @@ class NewPing extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    users: state.users
+    users: state.users.filter(user => user.id !== state.currentUser.id),
+    currentUser: state.currentUser
   }
 }
 
