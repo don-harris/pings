@@ -11,11 +11,15 @@ router.use(bodyParser.json())
 router.get('/users', (req, res) => {
   db.getUsers()
     .then(result => res.json(result))
-})
+  .catch(() => {
+    res.status(500).end()
+  })
 
 router.get('/pings', (req, res) => {
   db.getPings()
     .then(result => res.json(result))
+    .catch(() => {
+    res.status(500).end()
 })
 
 router.post('/users', (req, res) => {
@@ -26,21 +30,29 @@ router.post('/users', (req, res) => {
     photoUrl: req.body.photoUrl
   }
   db.saveUser(user)
-    .then(data => {
-      res.json(data)
+    .then(ids => {
+      res.json({
+        newId: ids[0]
+      })
     })
+    .catch(() => {
+    res.status(500).end()
 })
 
 router.post('/pings', (req, res) => {
   const ping = {
-    senderId: req.params.senderId,
-    recipientId: req.params.recipientId,
+    senderId: req.body.senderId,
+    recipientId: req.body.recipientId,
     imageUrl: req.body.imageUrl
   }
   db.saveUser(ping)
-    .then(data => {
-      res.json(data)
+    .then(ids => {
+      res.json({
+        newId: ids[0]
+      })
     })
+    .catch(() => {
+    res.status(500).end()
 })
 
 module.exports = router
