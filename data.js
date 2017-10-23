@@ -4,79 +4,79 @@ module.exports = {
       id: 1001,
       name: 'Callan',
       photo_url: '/images/cal.png',
-      username: 'Callan the Careless Whisper',
+      username: 'callan',
       hash: ''
     }, {
       id: 1002,
       name: 'Raj',
       photo_url: '/images/raj.jpg',
-      username: 'The Fijian Taxi Man',
+      username: 'raj',
       hash: ''
     }, {
       id: 1003,
       name: 'Joe',
       photo_url: '/images/joe.jpg',
-      username: 'Joey Badass',
+      username: 'joe',
       hash: ''
     }, {
       id: 1004,
       name: 'Richard',
       photo_url: '/images/rich.jpg',
-      username: 'Long John Silver',
+      username: 'rich',
       hash: ''
     }, {
       id: 1005,
-      name: 'Don',
+      name: 'Don.S',
       photo_url: '/images/don.jpeg',
-      username: 'The Code Thief',
+      username: 'don.s',
       hash: ''
     }, {
       id: 1006,
       name: 'Harrison',
       photo_url: '/images/harry.jpeg',
-      username: 'Ladybug Killer',
+      username: 'harrison',
       hash: ''
     }, {
       id: 1007,
       name: 'Skye',
       photo_url: '/images/skye.jpeg',
-      username: 'The Sloth of the Skies',
+      username: 'skye',
       hash: ''
     }, {
       id: 1008,
       name: 'Aaron',
       photo_url: '/images/aaron.png',
-      username: 'The Coach',
+      username: 'aaron',
       hash: ''
     }, {
       id: 1009,
       name: 'Andrea',
       photo_url: '/images/andrea.jpeg',
-      username: 'The Bombastic Brazilian',
+      username: 'andrea',
       hash: ''
     }, {
       id: 1010,
       name: 'Octavia',
       photo_url: '/images/oct.jpeg',
-      username: 'OctoLady',
+      username: 'octavia',
       hash: ''
     }, {
       id: 1011,
       name: 'Daz',
       photo_url: '/images/daz.jpeg',
-      username: 'Freeform',
+      username: 'daz',
       hash: ''
     }, {
       id: 1012,
       name: 'Annah',
       photo_url: '/images/annah.jpeg',
-      username: 'Wonder Woman',
+      username: 'annah',
       hash: ''
     }, {
       id: 1013,
-      name: 'Don H',
+      name: 'Don.H',
       photo_url: '/images/donh.jpeg',
-      username: 'The Murricane',
+      username: 'don.h',
       hash: ''
     }
   ],
