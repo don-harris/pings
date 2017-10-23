@@ -1,11 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import {pings} from '../../server/data.js'
 
 const Pings = () => {
   return (
     <div className='pings'>
       {pings.map((ping, i) => {
-        return <div key={i}> <Ping /></div>
+        return <div key={i}> <Ping pings={}/> </div>
       })}
     </div>
   )
