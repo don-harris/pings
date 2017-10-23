@@ -8,7 +8,7 @@
     "postinstall": "webpack",
     "start": "node server",
     "test": "jest",
-    "knex": "knex"
+    "knex": "knex --knexfile ./server/knexfile.js"
   },
   "keywords": [
     "react",
