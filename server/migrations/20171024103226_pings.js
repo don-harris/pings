@@ -1,6 +1,5 @@
-
-exports.up = function(knex, Promise) {
-  return knex.schema.createTableIfNotExists('pings', function(table) {
+exports.up = function (knex, Promise) {
+  return knex.schema.createTableIfNotExists('pings', function (table) {
     table.increments().primary()
     table.integer('sender_id')
     table.integer('recipient_id')
@@ -8,6 +7,6 @@ exports.up = function(knex, Promise) {
   })
 }
 
-exports.down = function(knex, Promise) {
+exports.down = function (knex, Promise) {
   return knex.schema.dropTableIfExists('pings')
 }
