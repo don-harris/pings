@@ -1,3 +1,5 @@
+const {generate} = require('./auth/hash')
+
 const path = require('path')
 const env = process.env.NODE_ENV || 'development'
 const config = require(path.join(__dirname, './knexfile'))[env]
@@ -16,11 +18,12 @@ function getPings () {
 }
 
 function saveUser ({name, username, password, photoUrl}) {
+  const passwordHash = generate(password)
   return knex('users')
     .insert({
       name: name,
       username: username,
-      hash: password,
+      hash: passwordHash,
       photo_url: photoUrl
     })
 }
@@ -34,7 +37,25 @@ function savePing ({senderId, recipientId, imageUrl}) {
     })
 }
 
+function userExists (username) {
+  return knex('users')
+    .count('id as n')
+    .where('username', username)
+    .then(count => {
+      return count[0].n > 0
+    })
+}
+
+function getUserByName (username) {
+  return knex('users')
+    .select()
+    .where('username', username)
+    .first()
+}
+
 module.exports = {
+  userExists,
+  getUserByName,
   getUsers,
   getPings,
   saveUser,

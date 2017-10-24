@@ -6,6 +6,8 @@ const router = express.Router()
 
 const db = require('./db')
 
+const token = require('./auth/token')
+
 router.use(bodyParser.json())
 
 router.get('/users', (req, res) => {
@@ -19,7 +21,7 @@ router.get('/users', (req, res) => {
 router.get('/pings', (req, res) => {
   db.getPings()
     .then(result => res.json(result))
-    .catch((err) => {
+    .catch(() => {
       res.status(500).end()
     })
 })
@@ -58,5 +60,22 @@ router.post('/pings', (req, res) => {
       res.status(500).end()
     })
 })
+
+router.post('/auth/register', register, token.issue)
+
+function register (req, res, next) {
+  const user = req.body
+  db.userExists(user.username)
+    .then(exists => {
+      if (exists) {
+        return res.status(400).json({message: 'User exists'})
+      }
+      db.saveUser(user)
+        .then(() => next())
+    })
+    .catch(() => {
+      res.status(500).end()
+    })
+}
 
 module.exports = router
