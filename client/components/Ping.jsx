@@ -8,10 +8,10 @@ const Ping = (props) => {
         Sender:{props.ping.senderPhoto}
       </div>
       <div className='image'>
-        Image:{props.ping.imageUrl}
+        Image:{props.ping.image}
       </div>
       <div className='photo'>
-        Recepient:{props.ping.recepientPhoto}
+        Recepient:{props.ping.recipientPhoto}
       </div>
     </div>
   )
