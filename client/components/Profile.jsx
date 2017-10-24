@@ -5,21 +5,18 @@ class Profile extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      updateUser: {
-        photo: '',
-        username: '',
-        password: ''
-      }
+      name: props.currentUser.name,
+      photo: props.currentUser.photo_url,
+      username: props.currentUser.username,
+      password: ''
     }
     this.handleChange = this.handleChange.bind(this)
     this.updateUser = this.updateUser.bind(this)
   }
 
   handleChange (e) {
-    const updateUser = this.state.updateUser
-    updateUser[e.target.name] = e.target.value
     this.setState({
-      updateUser: updateUser
+      [e.target.name]: e.target.value
     })
   }
 
@@ -28,15 +25,16 @@ class Profile extends React.Component {
     console.log('put dispatch here')
   }
   render () {
-    const {username, photo, password} = this.state
+    const {username, photo, name, password} = this.state
     return (
       <div className="updateUser-form">
         <div><h1>Here is where you can update your profile</h1></div>
         <img src={photo} alt="" width="100px" height="100px"/>
         <form>
-          Photo: <p><input name="name" onChange={this.handleChange}placeholder="Update Image" value={photo} /></p>
-          Username: <p><input name="username" onChange={this.handleChange}placeholder="username" value={username} /></p>
-          Password: <p><input name="password" onChange={this.handleChange}placeholder="password" value={password} /></p>
+          Photo: <p><input name="photo" onChange={this.handleChange} placeholder="Update Image" value={photo} /></p>
+          Name: <p><input name="name" onChange={this.handleChange} placeholder="Your Name" value={name} /></p>
+          Username: <p><input name="username" onChange={this.handleChange} placeholder="username" value={username} /></p>
+          Password: <p><input name="password" onChange={this.handleChange} placeholder="password" value={password} /></p>
           <p><input type="submit" onClick={this.updateUser} /></p>
         </form>
       </div>
@@ -44,4 +42,10 @@ class Profile extends React.Component {
   }
 }
 
-export default connect()(Profile)
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.currentUser
+  }
+}
+
+export default connect(mapStateToProps)(Profile)
