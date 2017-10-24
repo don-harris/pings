@@ -1,6 +1,6 @@
-import data from '../../server/data'
+import data from '../../data.js'
 
-export default function pings (state = data.users, action) {
+export default function pings (state = data.pings, action) {
   switch (action.type) {
     default:
       return state
