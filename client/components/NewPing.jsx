@@ -50,7 +50,7 @@ class NewPing extends React.Component {
             </p>
           </label>
           <select onChange={this.selectRecepient}  className="selector button is-large is-info">
-            <option selected disabled >Select user</option>
+            <option selected disabled >Select user &#8679;</option>
             {users.map(user => {
               return (<option key={user.id} value={user.id}>{user.name}</option>)
             })}
