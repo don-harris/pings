@@ -1,11 +1,24 @@
 import request from 'superagent'
-import {RECEIVE_PINGS} from '../actions/pings'
+import {getPings} from '../client-api'
+import {showError} from './error-message'
 
 export const RECEIVE_PINGS = 'RECEIVE_PINGS'
 
-export const recievePings = (pings) => {
+export const receivePings = (pings) => {
   return {
-    type: RECIEVE_PINGS,
+    type: RECEIVE_PINGS,
     pings: pings
+  }
+}
+
+export function fetchPings () {
+  return dispatch => {
+    getPings()
+      .then(res => {
+        dispatch(receivePings(res.body))
+      })
+      .catch(err => {
+        dispatch(showError(err.message))
+      })
   }
 }
