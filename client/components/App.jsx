@@ -6,6 +6,7 @@ import WaitIndicator from './WaitIndicator'
 import NewPing from './NewPing'
 import Profile from './Profile'
 import Register from './Register'
+import SignIn from './SignIn'
 
 const App = () => (
   <div className='app'>
@@ -14,6 +15,7 @@ const App = () => (
     <Route path='/newping' component={NewPing} />
     <Route path='/profile' component={Profile} />
     <Route path='/register' component={Register} />
+    <Route path='/signin' component={SignIn} />
     <WaitIndicator />
   </div>
 )
