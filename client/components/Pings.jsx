@@ -1,13 +1,13 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
 import Ping from './Ping'
 
 const Pings = (props) => {
   return (
     <div className='pings'>
-      {props.pings.map((ping, i) => {
-        return <div key={i}> <Ping ping={ping}/> </div>
+      {props.pings.map((ping, id) => {
+        return <div key={id}> <Ping ping={ping}/> </div>
       })}
     </div>
   )
@@ -20,6 +20,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(Pings)
-
-//create links to home page by clicking ping header
-//link to new and to profile
