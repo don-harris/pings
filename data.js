@@ -81,8 +81,8 @@ module.exports = {
     }
   ],
   pings: [
-    { id: 1, sender_id: 1001, recipient_id: 1005, image_url: '/images/lol.gif' },
-    { id: 2, sender_id: 1006, recipient_id: 1010, image_url: '/images/dog.gif' },
-    { id: 3, sender_id: 1003, recipient_id: 1008, image_url: '/images/meme.gif' }
+    { id: 1, senderId: 1001, senderPhoto: '/images/cal.png', recipientId: 1005, recepientPhoto: '/images/don.jpeg', imageUrl: '/images/lol.gif' },
+    { id: 2, senderId: 1006, senderPhoto: '/images/harry.jpeg', recipientId: 1010, recepientPhoto: '/images/oct.jpeg', imageUrl: '/images/dog.gif' },
+    { id: 3, senderId: 1003, senderPhoto: '/images/joe.jpg', recipientId: 1008, recepientPhoto: '/images/aaron.png', imageUrl: '/images/meme.gif' }
   ]
 }

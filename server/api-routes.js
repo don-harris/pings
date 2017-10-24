@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 
 const router = express.Router()
 
-const db = {}
+const db = require('./db')
 
 router.use(bodyParser.json())
 
@@ -19,7 +19,7 @@ router.get('/users', (req, res) => {
 router.get('/pings', (req, res) => {
   db.getPings()
     .then(result => res.json(result))
-    .catch(() => {
+    .catch((err) => {
       res.status(500).end()
     })
 })
@@ -48,7 +48,7 @@ router.post('/pings', (req, res) => {
     recipientId: req.body.recipientId,
     imageUrl: req.body.imageUrl
   }
-  db.saveUser(ping)
+  db.savePing(ping)
     .then(ids => {
       res.json({
         newId: ids[0]
