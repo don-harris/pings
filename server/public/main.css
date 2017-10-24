@@ -15,4 +15,5 @@ body {
   width: 230px;
   height: 230px;
   margin: 20px;
+  border: 8px solid white; 
 }
