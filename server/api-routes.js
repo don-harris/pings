@@ -12,7 +12,7 @@ router.get('/users', (req, res) => {
   db.getUsers()
     .then(result => res.json(result))
     .catch(() => {
-      res.status(500).send('err')
+      res.status(500).end()
     })
 })
 
@@ -20,7 +20,7 @@ router.get('/pings', (req, res) => {
   db.getPings()
     .then(result => res.json(result))
     .catch((err) => {
-      res.status(500).send(err)
+      res.status(500).end()
     })
 })
 
