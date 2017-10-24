@@ -1,4 +1,4 @@
-import data from '../../data.js'
+
 import {RECEIVE_PINGS} from '../actions/pings.js'
 
 export default function pings (state = [], action) {
