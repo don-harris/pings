@@ -78,4 +78,11 @@ function register (req, res, next) {
     })
 }
 
+router.put('/users/:id', (req, res) => {
+  const userUpdate = req.body
+  db.updateUser(req.params.id, userUpdate)
+    .then((newData) => res.json(newData))
+    .catch(err => console.log(err))
+})
+
 module.exports = router

@@ -39,7 +39,7 @@ class NewPing extends React.Component {
           <label>Image:
             <input type="text" onChange={this.selectImage}/>
           </label>
-          <select onChange={this.selectRecepient}  className="selector">
+          <select onChange={this.selectRecepient} className="selector">
             <option selected disabled >Select user</option>
             {users.map(user => {
               return (<option key={user.id} value={user.id}>{user.name}</option>)

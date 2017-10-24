@@ -53,11 +53,19 @@ function getUserByName (username) {
     .first()
 }
 
+function updateUser (id, newData) {
+  return knex('users')
+    .where('id', id)
+    .update(newData)
+    .then(() => getUserByName(newData.username))
+}
+
 module.exports = {
   userExists,
   getUserByName,
   getUsers,
   getPings,
   saveUser,
-  savePing
+  savePing,
+  updateUser
 }

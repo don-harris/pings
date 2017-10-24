@@ -32,10 +32,14 @@ class Profile extends React.Component {
         <div><h1>Profile</h1></div>
         <img src={photo} alt="" width="100px" height="100px"/>
         <form>
-          Photo: <p><input name="photo" onChange={this.handleChange} placeholder="Update Image" value={photo} /></p>
-          Name: <p><input name="name" onChange={this.handleChange} placeholder="Your Name" value={name} /></p>
-          Username: <p><input name="username" onChange={this.handleChange} placeholder="username" value={username} /></p>
-          Password: <p><input name="password" onChange={this.handleChange} placeholder="password" value={password} /></p>
+          Photo:
+          <p><input name="photo" onChange={this.handleChange} placeholder="Update Image" value={photo} /></p>
+          Name:
+          <p><input name="name" onChange={this.handleChange} placeholder="Your Name" value={name} /></p>
+          Username:
+          <p><input name="username" onChange={this.handleChange} placeholder="username" value={username} /></p>
+          Password:
+          <p><input name="password" onChange={this.handleChange} placeholder="password" value={password} /></p>
           <p><input type="submit" onClick={this.updateUser} /></p>
         </form>
       </div>
