@@ -12,5 +12,3 @@ function generate (password) {
 module.exports = {
   generate
 }
-
-// step14 Auth: need to sort db function getUserByName.

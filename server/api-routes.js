@@ -68,7 +68,7 @@ function register (req, res, next) {
   db.userExists(user.username)
     .then(exists => {
       if (exists) {
-        return res.status(400).json({ message: 'User exists' })
+        return res.status(400).json({message: 'User exists'})
       }
       db.saveUser(user)
         .then(() => next())

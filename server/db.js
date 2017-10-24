@@ -37,7 +37,6 @@ function savePing ({senderId, recipientId, imageUrl}) {
     })
 }
 
-// AUTH
 function userExists (username) {
   return knex('users')
     .count('id as n')
