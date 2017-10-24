@@ -6,7 +6,7 @@ class NewPing extends React.Component {
     super(props)
     this.state = {
       recepientId: null,
-      image: null,
+      image_url: null,
       senderId: props.currentUser.id
     }
     this.selectRecepient = this.selectRecepient.bind(this)
@@ -19,7 +19,7 @@ class NewPing extends React.Component {
   }
 
   selectImage (evt) {
-    this.setState({image: evt.target.value})
+    this.setState({image_url: evt.target.value})
   }
 
   submitInfo (evt) {
@@ -32,18 +32,19 @@ class NewPing extends React.Component {
     const recepient = users.find(user => user.id == this.state.recepientId)
     return (
       <div>
-        <img src={currentUser.photo_url} /> {/*this is the sender image*/}
-        <img src={this.state.image || 'http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder-300x300.png'} /> {/*this is the image being pinged*/}
-        <img src={recepient ? recepient.photo_url : 'https://www.wsxenterprise.co.uk/wp-content/uploads/2015/11/blank-profile-picture-973461_1280-300x300.png'} /> {/*this is the recepient image*/}
+        <img src={currentUser.photo_url} />
+        <img src={this.state.image_url || 'http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder-300x300.png'} />
+        <img src={recepient ? recepient.photo_url : 'https://www.wsxenterprise.co.uk/wp-content/uploads/2015/11/blank-profile-picture-973461_1280-300x300.png'} />
         <form onSubmit={this.submitInfo}>
-          Image: <input type="text" onChange={this.selectImage}/><br/>
+          <label>Image:
+            <input type="text" onChange={this.selectImage}/>
+          </label>
           <select onChange={this.selectRecepient} name="" className="selector">
             <option selected disabled >Select user</option>
             {users.map(user => {
               return (<option key={user.id} value={user.id}>{user.name}</option>)
             })}
           </select>
-          <br/>
           <input type="submit" value="Ping!"/>
         </form >
       </div>

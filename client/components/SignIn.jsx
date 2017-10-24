@@ -18,24 +18,21 @@ class SignIn extends React.Component {
   }
   render () {
     return (
-      <div className='signin'>
-        <div className='signin-form'>
-          <form>
-            <label>
+      <div className='signin-form'>
+        <form>
+          <label>
               username:
-              <input onChange={this.handleChange} type="text" name="username" />
-            </label>
-            <label>
+            <input onChange={this.handleChange} type="text" name="username" />
+          </label>
+          <label>
               Password:
-              <input onChange={this.handleChange} type="password" name="password" />
-            </label>
-            <input type="submit" value="Sign in" />
-          </form>
-        </div>
+            <input onChange={this.handleChange} type="password" name="password" />
+          </label>
+          <input type="submit" value="Sign in" />
+        </form>
       </div>
     )
   }
 }
-
 
 export default connect()(SignIn)
