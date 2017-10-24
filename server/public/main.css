@@ -1,3 +1,9 @@
+body {
+  background-image: url( "http://www.zingerbug.com/Backgrounds/background_images/baby_blue_diagonal_stripes_seamless_background_pattern.jpg");
+  background-repeat: repeat;
+  height: 1000px;
+  }
+
 .error {
   color: red;
   font-weight: bold;
