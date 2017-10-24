@@ -10,34 +10,27 @@ class SignIn extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this)
   }
-  handleChange(e) {
+  handleChange (e) {
     this.setState({
-      username: e.target.value,
-      password: e.target.value
+      [e.target.name]: e.target.value
     })
   }
 }
 
-// signedIn (e) {
-//   e.preventDefault()
-//   this.userIn(this.state.username),
-//   this.pass(this.state.password)
-// }
-
 render() {
   return (
-  <div className='signIn'>
-    <div className='signIn-form'>
+  <div className='signin'>
+    <div className='signin-form'>
     <form>
       <label>
         username:
-        <input type="text" name="username" />
+        <input onChange={this.handleChange} type="text" name="username" />
       </label>
-        <label>signedIn
+        <label>
         Password:
-        <input type="password" name="password" />
+        <input onChange={this.handleChange} type="password" name="password" />
       </label>
-        <input onChange={this.handleChange(e)} type="submit" value="Submit" />
+        <input type="submit" value="Sign in" />
     </form>
     </div>
   </div>
