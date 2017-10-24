@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 
 const router = express.Router()
 
-const db = {}
+const db = require('./db')
 
 router.use(bodyParser.json())
 
@@ -12,15 +12,15 @@ router.get('/users', (req, res) => {
   db.getUsers()
     .then(result => res.json(result))
     .catch(() => {
-      res.status(500).end()
+      res.status(500).send('err')
     })
 })
 
 router.get('/pings', (req, res) => {
   db.getPings()
     .then(result => res.json(result))
-    .catch(() => {
-      res.status(500).end()
+    .catch((err) => {
+      res.status(500).send(err)
     })
 })
 
@@ -48,7 +48,7 @@ router.post('/pings', (req, res) => {
     recipientId: req.body.recipientId,
     imageUrl: req.body.imageUrl
   }
-  db.saveUser(ping)
+  db.savePing(ping)
     .then(ids => {
       res.json({
         newId: ids[0]
@@ -60,13 +60,13 @@ router.post('/pings', (req, res) => {
 })
 
 router.post('/auth/register', (req, res) => {
-  const {username, password, name, photoUrl} = req.body
-  db.userExists(username)
+  const user = req.body
+  db.userExists(user.username)
     .then(exists => {
       if (exists) {
         return res.status(400).send({ message: 'User exists' })
       }
-      db.createUser(username, password, name, photoUrl)
+      db.saveUser(user)
     })
     .catch(err => {
       res.status(500).send({ message: err.message })
