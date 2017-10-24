@@ -60,11 +60,16 @@ router.post('/pings', (req, res) => {
 })
 
 router.post('/auth/register', (req, res) => {
-  const {username, password, name, photo_url} = req.body
+  const {username, password, name, photoUrl} = req.body
   db.userExists(username)
-    .then(username => {
-    
-      
+    .then(exists => {
+      if (exists) {
+        return res.status(400).send({ message: 'User exists' })
+      }
+      db.createUser(username, password, name, photoUrl)
+    })
+    .catch(err => {
+      res.status(500).send({ message: err.message })
     })
 })
 
