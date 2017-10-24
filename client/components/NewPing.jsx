@@ -6,7 +6,7 @@ class NewPing extends React.Component {
     super(props)
     this.state = {
       recepientId: null,
-      image_url: null,
+      imageUrl: null,
       senderId: props.currentUser.id
     }
     this.selectRecepient = this.selectRecepient.bind(this)
@@ -19,7 +19,7 @@ class NewPing extends React.Component {
   }
 
   selectImage (evt) {
-    this.setState({image_url: evt.target.value})
+    this.setState({imageUrl: evt.target.value})
   }
 
   submitInfo (evt) {
@@ -33,13 +33,13 @@ class NewPing extends React.Component {
     return (
       <div>
         <img src={currentUser.photo_url} />
-        <img src={this.state.image_url || 'http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder-300x300.png'} />
+        <img src={this.state.imageUrl || 'http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder-300x300.png'} />
         <img src={recepient ? recepient.photo_url : 'https://www.wsxenterprise.co.uk/wp-content/uploads/2015/11/blank-profile-picture-973461_1280-300x300.png'} />
         <form onSubmit={this.submitInfo}>
           <label>Image:
             <input type="text" onChange={this.selectImage}/>
           </label>
-          <select onChange={this.selectRecepient} name="" className="selector">
+          <select onChange={this.selectRecepient}  className="selector">
             <option selected disabled >Select user</option>
             {users.map(user => {
               return (<option key={user.id} value={user.id}>{user.name}</option>)
