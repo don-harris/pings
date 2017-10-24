@@ -5,7 +5,7 @@
   "main": "server/index",
   "scripts": {
     "dev": "nodemon --watch server & webpack --watch",
-    "postinstall": "webpack && knex migrate:latest",
+    "postinstall": "webpack && npm run knex migrate:latest",
     "start": "node server",
     "test": "jest",
     "knex": "knex --knexfile ./server/knexfile.js"
