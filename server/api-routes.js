@@ -19,7 +19,7 @@ router.get('/users', (req, res) => {
 router.get('/pings', (req, res) => {
   db.getPings()
     .then(result => res.json(result))
-    .catch((err) => {
+    .catch(() => {
       res.status(500).end()
     })
 })
@@ -64,12 +64,15 @@ router.post('/auth/register', (req, res) => {
   db.userExists(user.username)
     .then(exists => {
       if (exists) {
-        return res.status(400).send({ message: 'User exists' })
+        return res.status(400).json({message: 'User exists'})
       }
       db.saveUser(user)
+        .then(ids => {
+          res.json({newId: ids[0]})
+        })
     })
-    .catch(err => {
-      res.status(500).send({ message: err.message })
+    .catch(() => {
+      res.status(500).end()
     })
 })
 

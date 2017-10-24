@@ -13,6 +13,4 @@ module.exports = {
   generate
 }
 
-// step6 Auth: didnt test auth post route cos db functions didnt exist yet. give it a go with postman
-// step9 Auth: need to call generate from db.createUser function, importing hash into db.js
 // step14 Auth: need to sort db function getUserByName.
