@@ -1,5 +1,4 @@
 const express = require('express')
-const request = require('superagent')
 const bodyParser = require('body-parser')
 
 const router = express.Router()
@@ -19,7 +18,7 @@ router.get('/users', (req, res) => {
 router.get('/pings', (req, res) => {
   db.getPings()
     .then(result => res.json(result))
-    .catch((err) => {
+    .catch(() => {
       res.status(500).end()
     })
 })

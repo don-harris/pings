@@ -3,15 +3,20 @@ import {connect} from 'react-redux'
 import {fetchPings} from '../actions/pings'
 import Ping from './Ping'
 
-const Pings = (props) => {
-  return (
-    <div className='pings'>
-      <button onClick={() => props.dispatch(fetchPings())}>MEME</button>
-      {props.pings.map((ping, id) => {
-        return <div key={id}> <Ping ping={ping}/> </div>
-      })}
-    </div>
-  )
+class Pings extends React.Component {
+  componentDidMount () {
+    this.props.dispatch(fetchPings())
+  }
+
+  render () {
+    return (
+      <div className='pings'>
+        {this.props.pings.map((ping) => {
+          return <div key={ping.id}> <Ping ping={ping}/> </div>
+        })}
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = (state) => {
