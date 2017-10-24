@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 
-const db = require('../db/users')
+const db = require('../db')
 
 module.exports = {
   issue
