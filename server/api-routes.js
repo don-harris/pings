@@ -59,4 +59,13 @@ router.post('/pings', (req, res) => {
     })
 })
 
+router.post('/auth/register', (req, res) => {
+  const {username, password, name, photo_url} = req.body
+  db.userExists(username)
+    .then(username => {
+    
+      
+    })
+})
+
 module.exports = router
