@@ -26,10 +26,11 @@ class NewPing extends React.Component {
     evt.preventDefault()
     console.log(this.state) // shows what's being posted
   }
-  validator() {
+  validate() {
     const {recepientId, imageUrl, senderId} = this.state
     return recepientId && imageUrl && senderId
   }
+  
   render () {
     const {users, currentUser} = this.props
     const recepient = users.find(user => user.id == this.state.recepientId)
@@ -55,7 +56,7 @@ class NewPing extends React.Component {
               return (<option key={user.id} value={user.id}>{user.name}</option>)
             })}
           </select>
-          <input className={`button is-large ${this.validator() ? 'is-success' : 'is-danger'}`} type="submit" value="Ping!"/>
+          <input className={`button is-large ${this.validate() ? 'is-success' : 'is-danger'}`} type="submit" value="Ping!"/>
         </form >
       </div>
     )
