@@ -20,3 +20,6 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(Pings)
+
+//create links to home page by clicking ping header
+//link to new and to profile
