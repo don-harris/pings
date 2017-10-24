@@ -5,43 +5,41 @@ class Register extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      // bring in photourl into img tag when input photurl typed in
-      photo_url: '/images/Blank_Avatar.png'
+      photoUrl: '/images/blank-avatar.png',
+      username: '',
+      password: '',
+      confirmPassword: '',
+      name: ''
     }
     this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(evt) {
-    // updating photourl when we type in photo input
     this.setState({
-      photo_url: evt.target.value
+      [evt.target.name]: evt.target.value
     })
   }
 
-
   render () {
-    // onchange for image tag to bring in image once typed in
-    // form for photo, name, username, password, password confirm
-    // save (/submit) button for form.
     return (
       <div>
         <div><h1>Register here...</h1></div>
-        <div><img src={this.state.photo_url} />profile image</div>
+        <div><img src={this.state.photoUrl} />profile image</div>
         <div>
           <label>username
-            <input type='text' />
+            <input type='text' onChange={this.handleChange} />
           </label>
           <label>password
-            <input type='text' />
+            <input type='text' onChange={this.handleChange} />
           </label>
           <label>confirm password
-            <input type='text' />
+            <input type='text' onChange={this.handleChange} />
           </label>
           <label>name
-            <input type='text' />
+            <input type='text' onChange={this.handleChange} />
           </label>
           <label>photo
-            <input type='text' onChange={(e) => this.handleChange(e)} placeholder="url..." />
+            <input type='text' onChange={this.handleChange} placeholder="url..." />
           </label>
           <label>SAVE
             <input type='submit' value='register' onClick={} />
