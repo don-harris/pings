@@ -40,9 +40,9 @@ class Register extends React.Component {
           </label>
           <label>photo
             <input type='text' onChange={this.handleChange} placeholder="url..." />
-          </label>
+          </label>?
           <label>SAVE
-            <input type='submit' value='register' onClick={} />
+            <input type='submit' value='register'/>
           </label>
         </div>
       </div>
