@@ -5,6 +5,7 @@ import ErrorMessage from './ErrorMessage'
 import WaitIndicator from './WaitIndicator'
 import NewPing from './NewPing'
 import Profile from './Profile'
+import Register from './Register'
 import SignIn from './SignIn'
 
 const App = () => (
@@ -13,6 +14,7 @@ const App = () => (
     <Route exact path='/' component={() => <h1>Pings</h1>} />
     <Route path='/newping' component={NewPing} />
     <Route path='/profile' component={Profile} />
+    <Route path='/register' component={Register} />
     <Route path='/signin' component={SignIn} />
     <WaitIndicator />
   </div>
