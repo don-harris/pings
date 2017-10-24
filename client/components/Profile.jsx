@@ -24,11 +24,12 @@ class Profile extends React.Component {
     e.preventDefault()
     console.log('put dispatch here')
   }
+
   render () {
     const {username, photo, name, password} = this.state
     return (
-      <div className="updateUser-form">
-        <div><h1>Here is where you can update your profile</h1></div>
+      <div className="update-user-form">
+        <div><h1>Profile</h1></div>
         <img src={photo} alt="" width="100px" height="100px"/>
         <form>
           Photo: <p><input name="photo" onChange={this.handleChange} placeholder="Update Image" value={photo} /></p>
