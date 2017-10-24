@@ -13,7 +13,7 @@ const App = () => (
     <Header />
     <WaitIndicator />
     <ErrorMessage />
-    <Pings />
+    <Route exact path= '/pings' component={Pings} />
     <Route exact path='/newping' component={NewPing} />
     <Route exact path='/profile' component={Profile} />
   </div>
