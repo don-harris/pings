@@ -34,7 +34,6 @@ export function updateProfile (id, newData) {
   return dispatch => {
     putUserProfile(id, newData)
       .then(res => {
-        console.log(res.body)
         dispatch(updateUser(res.body))
       })
       .catch(err => dispatch(showError(err.message)))

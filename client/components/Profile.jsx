@@ -23,12 +23,11 @@ class Profile extends React.Component {
 
   updateUser (e) {
     e.preventDefault()
-    // console.log('put dispatch here')
     this.props.dispatch(updateProfile(this.props.currentUser.id, this.state))
   }
 
   render () {
-    const {username, photo, name, password} = this.state
+    const {username, photo, name} = this.state
     return (
       <div className="update-user-form">
         <div><h1>Profile</h1></div>
@@ -40,8 +39,6 @@ class Profile extends React.Component {
           <p><input name="name" onChange={this.handleChange} placeholder="Your Name" value={name} /></p>
           Username:
           <p><input name="username" onChange={this.handleChange} placeholder="username" value={username} /></p>
-          Password:
-          <p><input name="password" onChange={this.handleChange} placeholder="password" /></p>
           <p><input type="submit" onClick={this.updateUser} /></p>
         </form>
       </div>
@@ -51,7 +48,7 @@ class Profile extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.currentUser
+    currentUser: state.currentUser || {}
   }
 }
 

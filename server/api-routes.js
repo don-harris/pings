@@ -79,7 +79,6 @@ function register (req, res, next) {
 
 router.put('/users/:id', (req, res) => {
   const userUpdate = req.body
-  console.log(req.body, req.params)
   db.updateUser(req.params.id, userUpdate)
     .then((newData) => res.json(newData))
     .catch(err => console.log(err))
