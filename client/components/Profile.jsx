@@ -29,15 +29,14 @@ class Profile extends React.Component {
     const {username, photo, name, password} = this.state
     return (
       <div className="update-user-form has-text-centered">
-        <br/>
-        <br/>
         <div><h1 className="title is-2">Profile</h1></div>
         <img src={photo} alt="" width="200px" height="200px" className="images"/>
         <form className="form">
-          Photo: <p className="profile-photo"><input name="photo" onChange={this.handleChange} placeholder="Update Image" value={photo} /></p>
-          Name: <p className="profile-name"><input name="name" onChange={this.handleChange} placeholder="Your Name" value={name} /></p>
-          Username: <p className="profile-username"><input name="username" onChange={this.handleChange} placeholder="username" value={username} /></p>
-          Password: <p className="profile-password"><input name="password" onChange={this.handleChange} placeholder="password" value={password} /></p>
+          <label>
+            Photo: </label> <p className="profile-photo"><input name="photo" onChange={this.handleChange} placeholder="Update Image" value={photo} /></p> <label>
+            Name:</label> <p className="profile-name"><input name="name" onChange={this.handleChange} placeholder="Your Name" value={name} /></p> <label>
+            Username:</label> <p className="profile-username"><input name="username" onChange={this.handleChange} placeholder="username" value={username} /></p> <label>
+            Password: </label><p className="profile-password" ><input name="password" onChange={this.handleChange} placeholder="password" value={password} /></p>
           <p className="profile-submit"><input type="submit" onClick={this.updateUser} className="button"/></p>
         </form>
       </div>
