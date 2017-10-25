@@ -24,27 +24,27 @@ class NewPing extends React.Component {
   }
 
   submitInfo (evt) {
-    evt.preventDefault()    
+    evt.preventDefault()
     const goHome = () => this.props.history.push('/')
     this.props.dispatch(postPingAsync(this.state, goHome))
   }
-  validate() {
+  validate () {
     const {recepientId, imageUrl, senderId} = this.state
     return recepientId && imageUrl && senderId
   }
-  
+
   render () {
     const {users, currentUser} = this.props
     const recipient = users.find(user => user.id == this.state.recipientId)
     return (
       <div className="container has-text-centered">
--        <div className="section">
+        <div className="section">
           <img src={currentUser.photo_url} />
           <img src={this.state.imageUrl || 'http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder-300x300.png'} />
           <img src={recipient ? recipient.photo_url : 'https://www.wsxenterprise.co.uk/wp-content/uploads/2015/11/blank-profile-picture-973461_1280-300x300.png'} />
         </div>
         <form onSubmit={this.submitInfo}>
-          <label className="label is-large">Image URL: 
+          <label className="label is-large">Image URL:
             <p className=" field control has-icons-left">
               <input type="text" className="input is-large" placeholder="image address" onChange={this.selectImage}/>
               <span className="icon is-small is-left">
@@ -52,7 +52,7 @@ class NewPing extends React.Component {
               </span>
             </p>
           </label>
-          <select onChange={this.selectRecipient}  className="selector button is-large is-info">
+          <select onChange={this.selectRecipient} className="selector button is-large is-info">
             <option selected disabled >Select user &#8679;</option>
             {users.map(user => {
               return (<option key={user.id} value={user.id}>{user.name}</option>)
