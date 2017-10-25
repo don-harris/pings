@@ -9,5 +9,4 @@ test('errorMessage return the error message during SHOW_ERROR', () => {
   }
   const newState = errorMessage('', action)
   expect(newState).toBe(action.errorMessage)
-  )}
-        
+})
