@@ -1,21 +1,22 @@
 import {connect} from 'react-redux'
 import React from 'react'
+import {postPingAsync} from '../actions/pings'
 
 class NewPing extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      recepientId: null,
+      recipientId: null,
       imageUrl: null,
       senderId: props.currentUser.id
     }
-    this.selectRecepient = this.selectRecepient.bind(this)
+    this.selectRecipient = this.selectRecipient.bind(this)
     this.selectImage = this.selectImage.bind(this)
     this.submitInfo = this.submitInfo.bind(this)
   }
 
-  selectRecepient (evt) {
-    this.setState({recepientId: Number(evt.target.value)})
+  selectRecipient (evt) {
+    this.setState({recipientId: Number(evt.target.value)})
   }
 
   selectImage (evt) {
@@ -23,8 +24,9 @@ class NewPing extends React.Component {
   }
 
   submitInfo (evt) {
-    evt.preventDefault()
-    console.log(this.state) // shows what's being posted
+    evt.preventDefault()    
+    const goHome = () => this.props.history.push('/')
+    this.props.dispatch(postPingAsync(this.state, goHome))
   }
   validate() {
     const {recepientId, imageUrl, senderId} = this.state
@@ -33,13 +35,13 @@ class NewPing extends React.Component {
   
   render () {
     const {users, currentUser} = this.props
-    const recepient = users.find(user => user.id == this.state.recepientId)
+    const recipient = users.find(user => user.id == this.state.recipientId)
     return (
       <div className="container has-text-centered">
-        <div className="section">
-          <img src={currentUser.photo_url} className="images" />
-          <img src={this.state.imageUrl || 'http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder-300x300.png'} className="images"  alt="don't be silly"/>
-          <img src={recepient ? recepient.photo_url : 'https://www.wsxenterprise.co.uk/wp-content/uploads/2015/11/blank-profile-picture-973461_1280-300x300.png'} className="images" />
+-        <div className="section">
+          <img src={currentUser.photo_url} />
+          <img src={this.state.imageUrl || 'http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder-300x300.png'} />
+          <img src={recipient ? recipient.photo_url : 'https://www.wsxenterprise.co.uk/wp-content/uploads/2015/11/blank-profile-picture-973461_1280-300x300.png'} />
         </div>
         <form onSubmit={this.submitInfo}>
           <label className="label is-large">Image URL: 
@@ -50,7 +52,7 @@ class NewPing extends React.Component {
               </span>
             </p>
           </label>
-          <select onChange={this.selectRecepient}  className="selector button is-large is-info">
+          <select onChange={this.selectRecipient}  className="selector button is-large is-info">
             <option selected disabled >Select user &#8679;</option>
             {users.map(user => {
               return (<option key={user.id} value={user.id}>{user.name}</option>)
