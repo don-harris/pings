@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route} from 'react-router-dom'
+import {Route, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 import Header from './Header'
@@ -34,4 +34,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(App)
+export default withRouter(connect(mapStateToProps)(App))

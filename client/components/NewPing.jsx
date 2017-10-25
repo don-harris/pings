@@ -1,5 +1,6 @@
-import {connect} from 'react-redux'
 import React from 'react'
+import {connect} from 'react-redux'
+
 import {postPingAsync} from '../actions/pings'
 
 class NewPing extends React.Component {

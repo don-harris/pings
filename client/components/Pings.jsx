@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+
 import {fetchPings} from '../actions/pings'
 import Ping from './Ping'
 
