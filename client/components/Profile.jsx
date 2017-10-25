@@ -29,17 +29,20 @@ class Profile extends React.Component {
   render () {
     const {username, photo, name} = this.state
     return (
-      <div className="update-user-form">
-        <div><h1>Profile</h1></div>
-        <img src={photo} alt="" width="200px" height="200px"/>
-        <form onSubmit={this.submitUpdate}>
-          Photo:
-          <p><input name="photo" onChange={this.handleChange} placeholder="Update Image" value={photo} /></p>
-          Name:
-          <p><input name="name" onChange={this.handleChange} placeholder="Your Name" value={name} /></p>
-          Username:
-          <p><input name="username" onChange={this.handleChange} placeholder="username" value={username} /></p>
-          <p><input type="submit" onClick={this.updateUser} /></p>
+      <div className="update-user-form has-text-centered">
+        <div><h1 className="title is-2">Profile</h1></div>
+        <img src={photo} width="200px" height="200px" className="images" />
+        <form onSubmit={this.submitUpdate} className="form">
+          <label>Photo:
+            <p className="profile-photo"><input name="photo" onChange={this.handleChange} placeholder="Update Image" value={photo} /></p>
+          </label>
+          <label>Name:
+            <p className="profile-name"><input name="name" onChange={this.handleChange} placeholder="Your Name" value={name} /></p>
+          </label>
+          <label>Username:
+            <p className="profile-username"><input name="username" onChange={this.handleChange} placeholder="username" value={username} /></p>
+          </label>
+          <p className="profile-submit"><input type="submit" onClick={this.updateUser} className="button" /></p>
         </form>
       </div>
     )
