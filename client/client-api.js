@@ -7,7 +7,9 @@ export function getPings () {
 export function putUserProfile (id, data) {
   return request.put('/api/v1/users/' + id)
     .send(data)
+}
+
 export function savePing (ping) {
   return request.post('/api/v1/pings')
-  .send(ping)
+    .send(ping)
 }
