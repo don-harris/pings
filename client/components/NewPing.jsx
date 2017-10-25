@@ -39,9 +39,9 @@ class NewPing extends React.Component {
     return (
       <div className="container has-text-centered">
         <div className="section">
-          <img src={currentUser.photo_url} />
-          <img src={this.state.imageUrl || 'http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder-300x300.png'} />
-          <img src={recipient ? recipient.photo_url : 'https://www.wsxenterprise.co.uk/wp-content/uploads/2015/11/blank-profile-picture-973461_1280-300x300.png'} />
+          <img src={currentUser.photo_url} className="images" />
+          <img src={this.state.imageUrl || 'http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder-300x300.png'} className="images" />
+          <img src={recipient ? recipient.photo_url : 'https://www.wsxenterprise.co.uk/wp-content/uploads/2015/11/blank-profile-picture-973461_1280-300x300.png'} className="images" />
         </div>
         <form onSubmit={this.submitInfo}>
           <label className="label is-large">Image URL:
@@ -66,6 +66,8 @@ class NewPing extends React.Component {
 }
 
 function mapStateToProps (state) {
+  // TODO: Fix this hack by showing an error to the user that they must be signed in to edit their profile
+  state.currentUser = state.currentUser || {}
   return {
     users: state.users.filter(user => user.id !== state.currentUser.id),
     currentUser: state.currentUser

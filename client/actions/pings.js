@@ -1,5 +1,5 @@
 import request from 'superagent'
-import {getPings, savePing} from '../client-api'
+import {getPings, putUserProfile, savePing} from '../client-api'
 import {showError} from './error-message'
 
 export const RECEIVE_PINGS = 'RECEIVE_PINGS'
@@ -24,6 +24,22 @@ export function fetchPings () {
   }
 }
 
+export function updateUser (newUser) {
+  return {
+    type: 'UPDATE_USER',
+    newUser
+  }
+}
+
+export function updateProfile (id, newData) {
+  return dispatch => {
+    putUserProfile(id, newData)
+      .then(res => {
+        dispatch(updateUser(res.body))
+      })
+      .catch(err => dispatch(showError(err.message)))
+  }
+}
 export function postPingAsync (ping, callback) {
   return dispatch => {
     savePing(ping)
