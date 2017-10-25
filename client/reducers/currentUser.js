@@ -1,6 +1,6 @@
-import data from '../../data.js'
+const initialState = require('../utils/auth').getUserTokenInfo()
 
-const currentUser = (state = data.users[2], action) => {
+const currentUser = (state = initialState, action) => {
   switch (action.type) {
     default:
       return state
