@@ -24,7 +24,7 @@ class NewPing extends React.Component {
   }
 
   submitInfo (evt) {
-    evt.preventDefault()    
+    evt.preventDefault()
     const goHome = () => this.props.history.push('/')
     this.props.dispatch(postPingAsync(this.state, goHome))
   }
@@ -40,8 +40,8 @@ class NewPing extends React.Component {
       <div className="container has-text-centered">
         <div className="section">
           <img src={currentUser.photo_url} className="images" />
-          <img src={this.state.imageUrl || 'http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder-300x300.png'} className="images" alt="don't be silly"/>
-          <img src={recepient ? recepient.photo_url : 'https://www.wsxenterprise.co.uk/wp-content/uploads/2015/11/blank-profile-picture-973461_1280-300x300.png'} className="images" />
+          <img src={this.state.imageUrl || 'http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder-300x300.png'} className="images" />
+          <img src={recipient ? recipient.photo_url : 'https://www.wsxenterprise.co.uk/wp-content/uploads/2015/11/blank-profile-picture-973461_1280-300x300.png'} className="images" />
         </div>
         <form onSubmit={this.submitInfo}>
           <label className="label is-large">Image URL:
@@ -52,7 +52,7 @@ class NewPing extends React.Component {
               </span>
             </p>
           </label>
-          <select onChange={this.selectRecepient} className="selector button is-large is-info">
+          <select onChange={this.selectRecipient} className="selector button is-large is-info">
             <option selected disabled >Select user &#8679;</option>
             {users.map(user => {
               return (<option key={user.id} value={user.id}>{user.name}</option>)
@@ -66,8 +66,7 @@ class NewPing extends React.Component {
 }
 
 function mapStateToProps (state) {
-  // this is a hack to avoid a brower error
-  // this should be fixed
+  // TODO: Fix this hack by showing an error to the user that they must be signed in to edit their profile
   state.currentUser = state.currentUser || {}
   return {
     users: state.users.filter(user => user.id !== state.currentUser.id),
