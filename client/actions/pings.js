@@ -12,13 +12,6 @@ export const receivePings = (pings) => {
   }
 }
 
-export const postPing = (ping) => {
-  return {
-    type: POST_PING,
-    ping: ping
-  }
-}
-
 export function fetchPings () {
   return dispatch => {
     getPings()
