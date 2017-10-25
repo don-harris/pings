@@ -30,13 +30,13 @@ class Profile extends React.Component {
     return (
       <div className="update-user-form">
         <div><h1>Profile</h1></div>
-        <img src={photo} alt="" width="100px" height="100px"/>
+        <img src={photo} alt="" width="200px" height="200px"/>
         <form>
-          Photo: <p><input name="photo" onChange={this.handleChange} placeholder="Update Image" value={photo} /></p>
-          Name: <p><input name="name" onChange={this.handleChange} placeholder="Your Name" value={name} /></p>
-          Username: <p><input name="username" onChange={this.handleChange} placeholder="username" value={username} /></p>
-          Password: <p><input name="password" onChange={this.handleChange} placeholder="password" value={password} /></p>
-          <p><input type="submit" onClick={this.updateUser} /></p>
+          Photo: <p className="profile-photo"><input name="photo" onChange={this.handleChange} placeholder="Update Image" value={photo} /></p>
+          Name: <p className="profile-name"><input name="name" onChange={this.handleChange} placeholder="Your Name" value={name} /></p>
+          Username: <p className="profile-username"><input name="username" onChange={this.handleChange} placeholder="username" value={username} /></p>
+          Password: <p className="profile-password"><input name="password" onChange={this.handleChange} placeholder="password" value={password} /></p>
+          <p className="profile-submit"><input type="submit" onClick={this.updateUser} /></p>
         </form>
       </div>
     )
