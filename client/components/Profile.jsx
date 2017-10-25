@@ -1,14 +1,15 @@
 import { connect } from 'react-redux'
 import React from 'react'
 
+import {updateProfile} from '../actions/pings.js'
+
 class Profile extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       name: props.currentUser.name,
       photo: props.currentUser.photo_url,
-      username: props.currentUser.username,
-      password: ''
+      username: props.currentUser.username
     }
     this.handleChange = this.handleChange.bind(this)
     this.updateUser = this.updateUser.bind(this)
@@ -22,16 +23,16 @@ class Profile extends React.Component {
 
   updateUser (e) {
     e.preventDefault()
-    console.log('put dispatch here')
+    this.props.dispatch(updateProfile(this.props.currentUser.id, this.state))
   }
 
   render () {
-    const {username, photo, name, password} = this.state
+    const {username, photo, name} = this.state
     return (
       <div className="update-user-form has-text-centered">
         <div><h1 className="title is-2">Profile</h1></div>
-        <img src={photo} alt="" width="200px" height="200px" className="images"/>
-        <form className="form">
+        <img src={photo} width="200px" height="200px" className="images" />
+        <form onSubmit={this.submitUpdate} className="form">
           <label>Photo:
             <p className="profile-photo"><input name="photo" onChange={this.handleChange} placeholder="Update Image" value={photo} /></p>
           </label>
@@ -41,10 +42,7 @@ class Profile extends React.Component {
           <label>Username:
             <p className="profile-username"><input name="username" onChange={this.handleChange} placeholder="username" value={username} /></p>
           </label>
-          <label>Password:
-            <p className="profile-password" ><input name="password" onChange={this.handleChange} placeholder="password" value={password} /></p>
-          </label>
-          <p className="profile-submit"><input type="submit" onClick={this.updateUser} className="button"/></p>
+          <p className="profile-submit"><input type="submit" onClick={this.updateUser} className="button" /></p>
         </form>
       </div>
     )
@@ -53,7 +51,7 @@ class Profile extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.currentUser
+    currentUser: state.currentUser || {}
   }
 }
 
