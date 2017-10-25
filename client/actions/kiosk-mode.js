@@ -1,5 +1,3 @@
-
-
 export const KIOSK_ON = 'KIOSK_ON'
 
 export const kioskOn = () => {
