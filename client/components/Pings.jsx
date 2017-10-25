@@ -10,7 +10,7 @@ class Pings extends React.Component {
 
   render () {
     return (
-      <div className='pings'>
+      <div className='container has-text-centered'>
         {this.props.pings.map((ping) => {
           return <div key={ping.id}> <Ping ping={ping}/> </div>
         })}

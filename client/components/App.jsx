@@ -14,17 +14,17 @@ import SignIn from './SignIn'
 import {kioskOff} from '../actions/kiosk-mode'
 
 const App = (props) => (
-  <div className='app' >
+  <div className='app'>
     {!props.isKioskMode && <Header />}
     <WaitIndicator />
     <ErrorMessage />
     <div onClick={() => props.dispatch(kioskOff())}>
       <Route exact path='/' component={Pings} />
-      <Route path='/new' component={NewPing} />
-      <Route path='/profile' component={Profile} />
-      <Route path='/register' component={Register} />
-      <Route path='/signin' component={SignIn} />
     </div>
+    <Route path='/new' component={NewPing} />
+    <Route path='/profile' component={Profile} />
+    <Route path='/register' component={Register} />
+    <Route path='/signin' component={SignIn} />
   </div>
 )
 
