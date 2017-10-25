@@ -6,5 +6,4 @@ const users = (state = data.users, action) => {
       return state
   }
 }
-
 export default users
