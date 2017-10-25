@@ -1,21 +1,22 @@
 import {connect} from 'react-redux'
 import React from 'react'
+import {postPingAsync} from '../actions/pings'
 
 class NewPing extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      recepientId: null,
+      recipientId: null,
       imageUrl: null,
       senderId: props.currentUser.id
     }
-    this.selectRecepient = this.selectRecepient.bind(this)
+    this.selectRecipient = this.selectRecipient.bind(this)
     this.selectImage = this.selectImage.bind(this)
     this.submitInfo = this.submitInfo.bind(this)
   }
 
-  selectRecepient (evt) {
-    this.setState({recepientId: Number(evt.target.value)})
+  selectRecipient (evt) {
+    this.setState({recipientId: Number(evt.target.value)})
   }
 
   selectImage (evt) {
@@ -23,8 +24,9 @@ class NewPing extends React.Component {
   }
 
   submitInfo (evt) {
-    evt.preventDefault()
-    console.log(this.state) // shows what's being posted
+    evt.preventDefault()    
+    const goHome = () => this.props.history.push('/')
+    this.props.dispatch(postPingAsync(this.state, goHome))
   }
   validate () {
     const {recepientId, imageUrl, senderId} = this.state
@@ -33,7 +35,7 @@ class NewPing extends React.Component {
 
   render () {
     const {users, currentUser} = this.props
-    const recepient = users.find(user => user.id == this.state.recepientId)
+    const recipient = users.find(user => user.id == this.state.recipientId)
     return (
       <div className="container has-text-centered">
         <div className="section">
