@@ -37,10 +37,12 @@ class NewPing extends React.Component {
     const {users, currentUser} = this.props
     const recipient = users.find(user => user.id == this.state.recipientId)
     return (
-      <div>
-        <img src={currentUser.photo_url} />
-        <img src={this.state.imageUrl || 'http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder-300x300.png'} />
-        <img src={recipient ? recipient.photo_url : 'https://www.wsxenterprise.co.uk/wp-content/uploads/2015/11/blank-profile-picture-973461_1280-300x300.png'} />
+      <div className="container has-text-centered">
+-        <div className="section">
+          <img src={currentUser.photo_url} />
+          <img src={this.state.imageUrl || 'http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder-300x300.png'} />
+          <img src={recipient ? recipient.photo_url : 'https://www.wsxenterprise.co.uk/wp-content/uploads/2015/11/blank-profile-picture-973461_1280-300x300.png'} />
+        </div>
         <form onSubmit={this.submitInfo}>
           <label className="label is-large">Image URL: 
             <p className=" field control has-icons-left">
