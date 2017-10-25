@@ -32,11 +32,18 @@ class Profile extends React.Component {
         <div><h1 className="title is-2">Profile</h1></div>
         <img src={photo} alt="" width="200px" height="200px" className="images"/>
         <form className="form">
-          <label>
-            Photo:  <p className="profile-photo"><input name="photo" onChange={this.handleChange} placeholder="Update Image" value={photo} /></p> </label><label>
-            Name: <p className="profile-name"><input name="name" onChange={this.handleChange} placeholder="Your Name" value={name} /></p></label> <label>
-              Username:<p className="profile-username"><input name="username" onChange={this.handleChange} placeholder="username" value={username} /></p></label>  <label>
-            Password: <p className="profile-password" ><input name="password" onChange={this.handleChange} placeholder="password" value={password} /></p></label>
+          <label>Photo:
+            <p className="profile-photo"><input name="photo" onChange={this.handleChange} placeholder="Update Image" value={photo} /></p>
+          </label>
+          <label>Name:
+            <p className="profile-name"><input name="name" onChange={this.handleChange} placeholder="Your Name" value={name} /></p>
+          </label>
+          <label>Username:
+            <p className="profile-username"><input name="username" onChange={this.handleChange} placeholder="username" value={username} /></p>
+          </label>
+          <label>Password:
+            <p className="profile-password" ><input name="password" onChange={this.handleChange} placeholder="password" value={password} /></p>
+          </label>
           <p className="profile-submit"><input type="submit" onClick={this.updateUser} className="button"/></p>
         </form>
       </div>
