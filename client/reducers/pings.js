@@ -1,5 +1,5 @@
 
-import {RECEIVE_PINGS} from '../actions/pings.js'
+import {RECEIVE_PINGS, POST_PING} from '../actions/pings.js'
 
 export default function pings (state = [], action) {
   switch (action.type) {
