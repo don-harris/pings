@@ -1,14 +1,15 @@
 import { connect } from 'react-redux'
 import React from 'react'
 
+import {updateProfile} from '../actions/pings.js'
+
 class Profile extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       name: props.currentUser.name,
       photo: props.currentUser.photo_url,
-      username: props.currentUser.username,
-      password: ''
+      username: props.currentUser.username
     }
     this.handleChange = this.handleChange.bind(this)
     this.updateUser = this.updateUser.bind(this)
@@ -22,7 +23,8 @@ class Profile extends React.Component {
 
   updateUser (e) {
     e.preventDefault()
-    console.log('put dispatch here')
+    // console.log('put dispatch here')
+    this.props.dispatch(updateProfile(this.props.currentUser.id, this.state))
   }
 
   render () {
@@ -30,8 +32,8 @@ class Profile extends React.Component {
     return (
       <div className="update-user-form">
         <div><h1>Profile</h1></div>
-        <img src={photo} alt="" width="100px" height="100px"/>
-        <form>
+        <img src={photo} alt="" width="200px" height="200px"/>
+        <form onSubmit={this.submitUpdate}>
           Photo:
           <p><input name="photo" onChange={this.handleChange} placeholder="Update Image" value={photo} /></p>
           Name:
@@ -39,7 +41,7 @@ class Profile extends React.Component {
           Username:
           <p><input name="username" onChange={this.handleChange} placeholder="username" value={username} /></p>
           Password:
-          <p><input name="password" onChange={this.handleChange} placeholder="password" value={password} /></p>
+          <p><input name="password" onChange={this.handleChange} placeholder="password" /></p>
           <p><input type="submit" onClick={this.updateUser} /></p>
         </form>
       </div>
